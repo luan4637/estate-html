@@ -114,3 +114,44 @@
         }
     }
 }
+
+@media screen and (max-width: 900px) {
+    .property-item {
+        figure {
+            height: 9em;
+        }
+
+        p {
+            width: 100%;
+        }
+
+        .btns {
+            margin-left: auto;
+            width: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .properties-list {
+        display: block;
+
+        li {
+            width: 100%;
+        }
+    }
+
+    .property-item {
+        figure {
+            height: 14em;
+        }
+
+        p {
+            width: 70%;
+        }
+
+        .btns {
+            margin-left: auto;
+        }
+    }
+}

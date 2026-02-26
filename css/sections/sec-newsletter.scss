@@ -61,3 +61,23 @@
         line-height: 1.4;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .sec-newsletter {
+        &-inner {
+            display: block;
+
+            div {
+                text-align: center;
+            }
+
+            form {
+                margin-top: 2em;
+
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

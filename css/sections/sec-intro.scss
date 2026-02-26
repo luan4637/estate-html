@@ -118,6 +118,7 @@
                     width: 100%;
                     padding-top: 0.5em;
                     text-align: center;
+                    white-space: nowrap;
 
                     i {
                         padding-right: 0.3em;
@@ -140,6 +141,57 @@
             .btn {
                 width: 6em;
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .sec-intro {
+        &-inner {
+            height: 70vh;
+            min-height: 30em;
+        }
+
+        .slogan {
+            h1 {
+                font-size: 2.6em;
+            }
+        }
+
+        .search-form {
+            form {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sec-intro {
+        &-inner {
+            height: 50vh;
+            min-height: 25em;
+        }
+
+        .slogan {
+            h1 {
+                font-size: 1.8em;
+                white-space: nowrap;
+            }
+
+            h2 {
+                font-size: 1em;
+            }
+        }
+
+        .search-form {
+            form {
+                width: 100%;
+
+                .select-location, .select-rent {
+                    display: none;
+                }
             }
         }
     }

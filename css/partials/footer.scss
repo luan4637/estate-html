@@ -141,3 +141,28 @@ footer {
         }
     }
 }
+
+@media screen and (max-width: 600px) {
+    footer {
+        .footer-inner {
+            display: block;
+
+            .col {
+                width: 100%;
+            }
+
+            .col-1 h5, .col h4 {
+                font-size: 1.1em;
+            }
+        }
+
+        .footer-bottom {
+            display: block;
+            text-align: center;
+
+            ul {
+                margin-top: 0.5em;
+            }
+        }
+    }
+}

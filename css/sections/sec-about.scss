@@ -23,6 +23,7 @@
 
     .block-item {
         padding: 1em 1.2em;
+        height: 100%;
         background-color: $colorLightGray;
         border-radius: 0.5em;
         box-shadow: 1px 1px 0 rgba($color: $colorGray, $alpha: 0.5);
@@ -53,6 +54,16 @@
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .sec-about {
+        background-image: none;
+        
+        &-inner {
+            padding-left: 0;
         }
     }
 }

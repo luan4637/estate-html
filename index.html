@@ -30,6 +30,12 @@
                 <div class="container">
                     <div class="header-inner">
                         <div class="logo"><a href="/"><img src="img/logo.png" alt="LOGO" /></a></div>
+                        <input type="checkbox" id="main_nav" />
+                        <label for="main_nav" class="navicon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
                         <menu class="navs">
                             <li><a href="/" class="actived">Home</a></li>
                             <li><a href="/">Buy</a></li>
@@ -63,12 +69,12 @@
                                     <select id="search-listingType" name="search-listingType" class="select select-rent">
                                         <button><selectedcontent></selectedcontent></button>
                                         <option value=""><span>-- Loading --</span></option>
-                                        <option value="0"><span>-- All Listing Type --</span></option>
+                                        <option value="0"><span>-- All Listing --</span></option>
                                     </select>
                                     <select id="search-propertyType" name="search-propertyType" class="select select-house">
                                         <button><selectedcontent></selectedcontent></button>
                                         <option value=""><span>-- Loading --</span></option>
-                                        <option value="0"><span>-- All Property Type --</span></option>
+                                        <option value="0"><span>-- All Property --</span></option>
                                     </select>
                                     <button type="submit" class="btn btn-primary">Find</button>
                                 </form>

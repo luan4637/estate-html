@@ -45,3 +45,13 @@
         border-top: 2px solid $colorLightGray;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .home-page {
+        section {
+            .headline-1 {
+                line-height: 1.2;
+            }
+        }
+    }
+}

@@ -52,3 +52,13 @@
         color: $colorGray;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .services-list {
+        display: block;
+
+        li {
+            width: 100%;
+        }
+    }
+}
