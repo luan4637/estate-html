@@ -1,0 +1,54 @@
+.pagination {
+    text-align: center;
+
+    ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+            margin: 0 0.1em;
+
+            &:first-child, &:last-child {
+                a {
+                    width: 3.2em;
+                }
+            }
+
+            a, span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 2em;
+                height: 2em;
+                border-radius: 0.3em;
+                text-decoration: none;
+                line-height: 1;
+                transition: background-color 0.3s ease, color 0.3s ease;
+
+                &.achor {
+                    padding: 0 0.5em;
+                    width: auto;
+                }
+
+                &.actived {
+                    cursor: default;
+                }
+            }
+            a:hover, a.actived, span.actived {
+                background-color: $colorThird;
+                color: $colorWhite;
+            }
+
+            a {
+                cursor: pointer;
+                color: $colorBlack;
+            }
+            span {
+                color: $colorGray;
+            }
+        }
+    }
+}

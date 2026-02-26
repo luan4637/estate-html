@@ -1,0 +1,44 @@
+.btn {
+    padding: 0.4em 1em;
+    border: 1px solid transparent;
+    border-radius: 3em;
+    background-color: $colorPrimary;
+    text-decoration: none;
+    text-align: center;
+    color: $colorWhite;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+
+    &-primary {
+        border-color: $colorPrimary;
+        background-color: $colorPrimary;
+        color: $colorWhite;
+
+        &:hover {
+            background-color: $colorWhite;
+            color: $colorPrimary;
+        }
+    }
+
+    &-second {
+        border-color: $colorThird;
+        background-color: $colorThird;
+        color: $colorWhite;
+
+        &:hover {
+            background-color: $colorWhite;
+            color: $colorThird;
+        }
+    }
+
+    &-default {
+        border-color: $colorPrimary;
+        background-color: $colorWhite;
+        color: $colorPrimary;
+
+        &:hover {
+            background-color: $colorPrimary;
+            color: $colorWhite;
+        }
+    }
+}

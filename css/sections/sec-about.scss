@@ -1,0 +1,58 @@
+.sec-about {
+    background-color: #f5f5f5;
+    background-image: url('../img/about-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 38% 100%;
+    background-position: left center;
+
+    &-inner {
+        padding-left: 40%;
+    }
+
+    .blocks {
+        display: flex;
+        margin: 2em -0.5em;
+        padding: 0;
+        list-style: none;
+
+        li {
+            flex: 1;
+            padding: 0 0.5em;
+        }
+    }
+
+    .block-item {
+        padding: 1em 1.2em;
+        background-color: $colorLightGray;
+        border-radius: 0.5em;
+        box-shadow: 1px 1px 0 rgba($color: $colorGray, $alpha: 0.5);
+
+        span, p {
+            display: block;
+        }
+
+        span {
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        p {
+            margin: 0.7em 0 0;
+            color: $colorGray;
+        }
+    }
+
+    .about-content {
+        margin-top: 1em;
+        line-height: 1.3;
+        color: $colorGray;
+
+        p {
+            margin: 0.7em 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

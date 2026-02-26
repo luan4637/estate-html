@@ -1,0 +1,63 @@
+.sec-newsletter {
+    background-color: #fff;
+    background-image: url('../img/newsletter-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    &-inner {
+        display: flex;
+        align-items: center;
+
+        > div {
+            flex: 1;
+        }
+
+        form {
+            position: relative;
+
+            input, .btn {
+                height: 2.5em;
+                font-size: 1em;
+            }
+
+            input {
+                padding: 0 7.1em 0 1.2em;
+                width: 25em;
+                background-color: $colorWhite;
+                border: 1px solid rgba($color: $colorGray, $alpha: 0.3);
+                border-radius: 2em;
+                font-size: 1em;
+                transition: border-color 0.3s;
+
+                &:focus {
+                    outline: none;
+                    border-color: rgba($color: $colorGray, $alpha: 0.8);
+                }
+            }
+
+            .btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0 1.2em;
+            }
+        }
+    }
+
+    h2, p {
+        margin: 0;
+        font-size: 1em;
+        text-shadow: 1px 1px 0 $colorBlack;
+        color: $colorWhite;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        margin-top: 0.6em;
+        line-height: 1.4;
+    }
+}

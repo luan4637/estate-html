@@ -1,0 +1,32 @@
+@import 'mixins';
+
+@import 'main';
+@import 'animations';
+
+@import 'partials/header';
+@import 'partials/footer';
+
+@import 'components/buttons';
+@import 'components/headlines';
+@import 'components/navs';
+@import 'components/filter-buttons';
+@import 'components/properties-list';
+@import 'components/latest-properties';
+@import 'components/services-list';
+@import 'components/pagination';
+
+@import 'pages/home-page';
+
+
+@import 'sections/sec-intro';
+@import 'sections/sec-properties';
+@import 'sections/sec-latest';
+@import 'sections/sec-services';
+@import 'sections/sec-newsletter';
+@import 'sections/sec-about';
+
+// #0D1A63
+// #1A2CA3
+// #2845D6
+// #F68048
+// supabase password 1YWDv7mvsF1x31Gt

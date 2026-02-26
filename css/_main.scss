@@ -1,0 +1,57 @@
+html, body {
+    font-size: 1.3vw;
+}
+html {
+    // scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-weight: normal;
+    color: #000;
+}
+body,
+input,
+textarea,
+button {
+    font-family: "Lato", sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+
+figure {
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 70em;
+
+    &.full-width {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+a {
+    display: inline-block;
+}
+
+.loading {
+    padding: 5em 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+
+    i {
+        font-size: 7em;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    html, body {
+        font-size: 16px;
+    }
+}

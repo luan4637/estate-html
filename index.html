@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estate Demo</title>
+        <meta name="description" content="Estate HTML site">
+        <link rel="icon" type="image/x-icon" href="/favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="https://unpkg.com/@supabase/supabase-js@2" async></script>
+        <script src="js/functions.js" fetchpriority="high"></script>
+        <script type="module" src="js/query.js" defer></script>
+        <script src="js/app.js" defer></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="container">
+                    <div class="header-inner">
+                        <div class="logo"><a href="/"><img src="img/logo.png" alt="LOGO" /></a></div>
+                        <menu class="navs">
+                            <li><a href="/" class="actived">Home</a></li>
+                            <li><a href="/">Buy</a></li>
+                            <li><a href="/">Rent</a></li>
+                            <li><a href="/">Contact</a></li>
+                        </menu>
+                        <ul class="nav-user">
+                            <li><a href="/" class="btn btn-second">Login</a></li>
+                            <li><a href="/" class="btn btn-primary">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <main class="home-page">
+                <section class="sec-intro">
+                    <div class="container">
+                        <div class="sec-intro-inner">
+                            <div class="slogan">
+                                <h1>Where does it come from?</h1>
+                                <h2>Sed ut perspiciatis unde omnis iste 
+                                    natus error sit voluptatem accusantium 
+                                    doloremque laudantium</h2>
+                            </div>
+                            <div class="search-form">
+                                <form id="search-form" action="#list-types" method="GET">
+                                    <select id="search-location" name="search-location" class="select select-location">
+                                        <button><selectedcontent></selectedcontent></button>
+                                        <option value=""><span>-- Loading --</span></option>
+                                        <option value="0"><span>-- Select a Location --</span></option>
+                                    </select>
+                                    <select id="search-listingType" name="search-listingType" class="select select-rent">
+                                        <button><selectedcontent></selectedcontent></button>
+                                        <option value=""><span>-- Loading --</span></option>
+                                        <option value="0"><span>-- All Listing Type --</span></option>
+                                    </select>
+                                    <select id="search-propertyType" name="search-propertyType" class="select select-house">
+                                        <button><selectedcontent></selectedcontent></button>
+                                        <option value=""><span>-- Loading --</span></option>
+                                        <option value="0"><span>-- All Property Type --</span></option>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Find</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="sec-latest">
+                    <div class="container">
+                        <div class="sec-latest-inner">
+                            <h2 class="headline headline-1">Our Latest Properties</h2>
+                            <p class="sub-headline">Sed ut perspiciatis unde omnis iste natus error 
+                                sit voluptatem accusantium doloremque laudantium.</p>
+                            <ul id="latest-properties" class="latest-properties">
+                                <li class="loading"><div><i class="fa fa-spinner fa-spin"></i></div></li>
+                            </ul>
+                            <template id="latest-property-template">
+                                <div class="latest-item js-latest-item">
+                                    <figure>
+                                        <a href="javascript:void(0)"><img src="" alt="" class="js-latest-item-image" /></a>
+                                    </figure>
+                                    <div class="info">
+                                        <h3><a href="javascript:void(0)" class="js-latest-item-title-h3"></a></h3>
+                                    </div>
+                                    <div class="detail">
+                                        <h4 class="js-latest-item-title-h4"></h4>
+                                        <p class="js-latest-item-description"></p>
+                                        <strong><i class="fa fa-map"></i><span class="js-latest-item-address">---</span></strong>
+                                        <ul>
+                                            <li><i class="fa fa-bed"></i><span class="js-latest-item-bed">-</span> Beds</li>
+                                            <li><i class="fa fa-bath"></i><span class="js-latest-item-bath">-</span> Baths</li>
+                                            <li><i class="fa fa-car"></i><span class="js-latest-item-park">-</span> Park</li>
+                                            <li><i class="fa fa-object-group"></i><span class="js-latest-item-square">-</span> sqft</li>
+                                        </ul>
+                                        <dl>
+                                            <dt><i class="fa fa-tag"></i>Median price</dt>
+                                            <dd class="js-latest-item-median-price">---</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fa fa-tag"></i>Weekly median rent</dt>
+                                            <dd class="js-latest-item-median-rent">---</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fa fa-tag"></i>Listed</dt>
+                                            <dd><span class="js-latest-item-created">-</span> days ago</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="btns">
+                                        <a class="js-btn-info" href="#"><i class="fa fa-info"></i></a>
+                                        <a class="js-btn-details" href="#"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="sec-about">
+                    <div class="container">
+                        <div class="sec-about-inner">
+                            <h2 class="headline headline-1">About Us</h2>
+                            <p class="sub-headline">Sed ut perspiciatis unde omnis iste natus error.</p>
+                            <ul class="blocks">
+                                <li>
+                                    <div class="block-item">
+                                        <span>3M+</span>
+                                        <p>Happy customers</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block-item">
+                                        <span>2K+</span>
+                                        <p>Sell properties</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block-item">
+                                        <span>7+</span>
+                                        <p>Years of Service</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="about-content">
+                                <p>But in certain circumstances and owing to the 
+                                    claims of duty or the obligations of business it will frequently 
+                                    occur that pleasures have to be repudiated and annoyances 
+                                    accepted.</p>
+                                <p>The wise man therefore always holds in these matters to this 
+                                    principle of selection: he rejects pleasures to secure other 
+                                    greater pleasures, or else he endures pains to avoid worse 
+                                    pains.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="sec-services">
+                    <div class="container">
+                        <div class="sec-services-inner">
+                            <h2 class="headline headline-1">Our services</h2>
+                            <p class="sub-headline">Sed ut perspiciatis unde omnis iste natus error 
+                                sit voluptatem accusantium doloremque laudantium</p>
+                            <ul class="services-list">
+                                <li>
+                                    <div class="service-item">
+                                        <figure><img src="img/service1.png" alt="" /></figure>
+                                        <h3><a href="#">Flexible Payment Solutions</a></h3>
+                                        <p>Nemo enim ipsam voluptatem quia 
+                                            voluptas sit aspernatur aut odit aut fugit
+                                            voluptas sit aspernatur aut odit aut fugit</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="service-item">
+                                        <figure><img src="img/service2.png" alt="" /></figure>
+                                        <h3><a href="#">Effortless Transactions</a></h3>
+                                        <p>Nemo enim ipsam voluptatem quia 
+                                            voluptas sit aspernatur aut odit aut fugit</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="service-item">
+                                        <figure><img src="img/service3.png" alt="" /></figure>
+                                        <h3><a href="#">Partnerships</a></h3>
+                                        <p>Nemo enim ipsam voluptatem quia 
+                                            voluptas sit aspernatur aut odit aut fugit</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="service-item">
+                                        <figure><img src="img/service4.png" alt="" /></figure>
+                                        <h3><a href="#">Meet Retailer</a></h3>
+                                        <p>Nemo enim ipsam voluptatem quia 
+                                            voluptas sit aspernatur aut odit aut fugit</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec-properties">
+                    <div class="container">
+                        <div class="sec-properties-inner">
+                            <h2 class="headline headline-1">The standard Lorem Ipsum passage</h2>
+                            <p class="sub-headline">Sed ut perspiciatis unde omnis iste natus error 
+                                sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+                                eaque ipsa quae ab illo inventore veritatis et quasi architecto 
+                                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia 
+                                voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur 
+                                magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                            <div id="properties-filter" class="filter-buttons">
+                                <ul id="list-types">
+                                    <li class="actived"><a href="#" data-type-id="0">All</a></li>
+                                </ul>
+                            </div>
+                            <ul id="properties-list" class="properties-list"></ul>
+                            <template id="property-template">
+                                <div class="property-item">
+                                    <figure>
+                                        <a href="javascript:void(0)"><img src="" alt="" class="js-property-item-image" /></a>
+                                    </figure>
+                                    <h3 class="js-property-item-median-price">---</h3>
+                                    <ul>
+                                        <li><i class="fa fa-bed"></i><span class="js-property-item-bed">-</span> Beds</li>
+                                        <li><i class="fa fa-bath"></i><span class="js-property-item-bath">-</span> Baths</li>
+                                        <li><i class="fa fa-car"></i><span class="js-property-item-park">-</span> Park</li>
+                                        <li><i class="fa fa-object-group"></i><span class="js-property-item-square">-</span> sqft</li>
+                                    </ul>
+                                    <p><i class="fa fa-map"></i><span class="js-property-item-address">---</span></p>
+                                    <div class="btns"><a href="javascript:void(0)" class="btn btn-primary">View</a></div>
+                                </div>
+                            </template>
+                            <div class="pagination">
+                                <ul id="pagination"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec-newsletter">
+                    <div class="container">
+                        <div class="sec-newsletter-inner">
+                            <div>
+                                <h2>Join our newsletter</h2>
+                                <p>Sed ut perspiciatis unde omnis 
+                                    sit voluptatem accusantium</p>
+                            </div>
+                            <form autocomplete="off">
+                                <input type="email" id="email" name="email" placeholder="Your email address" />
+                                <button type="button" class="btn btn-second">Subcribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <div class="container">
+                    <div class="footer-inner">
+                        <div class="col col-1">
+                            <a class="logo" href="#"><img src="img/logo.png" alt="" /></a>
+                            <p>Sed ut perspiciatis unde omnis iste natus error 
+                                sit voluptatem accusantium doloremque laudantium.</p>
+                            <h5>Follow us on Social Media</h5>
+                            <ul class="socials">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col col-2">
+                            <h4>Services</h4>
+                            <ul>
+                                <li><a href="#">Flexible Payment Solutions</a></li>
+                                <li><a href="#">Effortless Transactions</a></li>
+                                <li><a href="#">Partnerships</a></li>
+                                <li><a href="#">Meet Retailer</a></li>
+                            </ul>
+                        </div>
+                        <div class="col col-3">
+                            <h4>Contact</h4>
+                            <p><i class="fa fa-phone-square"></i>(+1)123-123-123</p>
+                            <p><i class="fa fa-envelope"></i>luan4637@gmail.com</p>
+                            <p><i class="fa fa-map"></i>20 Cooper Square, New York, NY 10003</p>
+                        </div>
+                        <div class="footer-bottom">
+                            <div class="copyright">
+                                &copy;2026 All rights reserved.
+                            </div>
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Teams of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

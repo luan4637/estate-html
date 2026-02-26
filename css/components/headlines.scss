@@ -1,0 +1,16 @@
+.headline {
+    font-family: "Anton", sans-serif;
+
+    &-1 {
+        margin: 0.5em 0;
+        font-size: 2.3em;
+        font-weight: normal;
+    }
+}
+
+.sub-headline {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 1em;
+    color: #444;
+}
