@@ -389,6 +389,15 @@ footer .footer-bottom ul li a:hover {
   color: #444;
 }
 
+.filter-buttons .select-group {
+  margin-bottom: 0.7em;
+}
+.filter-buttons .select-group .select-location {
+  width: 18em;
+}
+.filter-buttons .select-group .select-rent {
+  width: 12em;
+}
 .filter-buttons ul {
   margin: 0;
   padding: 0;
@@ -853,6 +862,66 @@ footer .footer-bottom ul li a:hover {
   color: #444;
 }
 
+.select {
+  margin-right: 0.7em;
+  padding: 0 0.6em;
+  height: 2.5em;
+  font-size: 1em;
+  background-color: #fff;
+  border-radius: 3em;
+  border: 1px solid #999;
+}
+.select, .select::picker(select) {
+  appearance: base-select;
+}
+.select::picker(select) {
+  border-radius: 0.5em;
+  border-color: transparent;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
+}
+.select::picker-icon {
+  padding-top: 0.5em;
+  padding-right: 0.4em;
+  color: #444;
+}
+.select option {
+  padding: 0.4em 1em;
+  transition: background-color 0.3s;
+}
+.select option:nth-child(odd) {
+  background-color: #eee;
+}
+.select option::checkmark {
+  order: 1;
+  margin-left: auto;
+  content: "\f058";
+  font-family: "FontAwesome";
+}
+.select option:hover {
+  background-color: #bbb;
+}
+.select option i {
+  width: 1.2em;
+}
+.select button selectedcontent {
+  width: 100%;
+  padding-top: 0.5em;
+  text-align: center;
+  white-space: nowrap;
+}
+.select button selectedcontent i {
+  padding-right: 0.3em;
+}
+.select-location {
+  flex: 2;
+}
+.select-rent {
+  flex: 1;
+}
+.select-house {
+  flex: 1;
+}
+
 .home-page section {
   padding: 2em 0;
 }
@@ -889,6 +958,47 @@ footer .footer-bottom ul li a:hover {
     line-height: 1.2;
   }
 }
+.properties-page section {
+  padding: 2em 0;
+}
+.properties-page section .headline-1 {
+  margin-top: 0;
+  line-height: 1;
+  text-align: center;
+}
+.properties-page section .sub-headline {
+  margin: 1em 0 2em;
+  text-align: center;
+}
+.properties-page .sec-intro {
+  margin-bottom: 2em;
+  padding: 0;
+}
+.properties-page .sec-intro-inner {
+  height: 50vh;
+  min-height: 25em;
+}
+.properties-page .sec-intro .slogan h1 {
+  margin-top: 2em;
+}
+.properties-page .sec-properties .headline {
+  margin-bottom: 1.2em;
+}
+.properties-page .sec-properties .properties-list {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.properties-page .sec-about {
+  margin: 2em 0;
+}
+.properties-page .sec-about .headline, .properties-page .sec-about .sub-headline {
+  text-align: left;
+}
+.properties-page .sec-newsletter {
+  margin-top: 1em;
+  border-top: 2px solid #eee;
+}
+
 .sec-intro {
   background-image: url("../img/home-bg.jpg");
   background-repeat: no-repeat;
@@ -948,63 +1058,6 @@ footer .footer-bottom ul li a:hover {
 .sec-intro .search-form form .select, .sec-intro .search-form form .btn {
   height: 2.5em;
   font-size: 1em;
-}
-.sec-intro .search-form form .select {
-  margin-right: 0.7em;
-  padding: 0 0.6em;
-  background-color: #fff;
-  border-radius: 3em;
-  border: 1px solid #999;
-}
-.sec-intro .search-form form .select, .sec-intro .search-form form .select::picker(select) {
-  appearance: base-select;
-}
-.sec-intro .search-form form .select::picker(select) {
-  border-radius: 0.5em;
-  border-color: transparent;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.3);
-}
-.sec-intro .search-form form .select::picker-icon {
-  padding-top: 0.5em;
-  padding-right: 0.4em;
-  color: #444;
-}
-.sec-intro .search-form form .select option {
-  padding: 0.4em 1em;
-  transition: background-color 0.3s;
-}
-.sec-intro .search-form form .select option:nth-child(odd) {
-  background-color: #eee;
-}
-.sec-intro .search-form form .select option::checkmark {
-  order: 1;
-  margin-left: auto;
-  content: "\f058";
-  font-family: "FontAwesome";
-}
-.sec-intro .search-form form .select option:hover {
-  background-color: #bbb;
-}
-.sec-intro .search-form form .select option i {
-  width: 1.2em;
-}
-.sec-intro .search-form form .select button selectedcontent {
-  width: 100%;
-  padding-top: 0.5em;
-  text-align: center;
-  white-space: nowrap;
-}
-.sec-intro .search-form form .select button selectedcontent i {
-  padding-right: 0.3em;
-}
-.sec-intro .search-form form .select-location {
-  flex: 2;
-}
-.sec-intro .search-form form .select-rent {
-  flex: 1;
-}
-.sec-intro .search-form form .select-house {
-  flex: 1;
 }
 .sec-intro .search-form form .btn {
   width: 6em;
@@ -1111,11 +1164,22 @@ footer .footer-bottom ul li a:hover {
   }
 }
 .sec-about {
+  position: relative;
   background-color: #f5f5f5;
-  background-image: url("../img/about-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: 38% 100%;
-  background-position: left center;
+}
+.sec-about-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 35%;
+  overflow: hidden;
+}
+.sec-about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .sec-about-inner {
   padding-left: 40%;
@@ -1161,8 +1225,11 @@ footer .footer-bottom ul li a:hover {
 }
 
 @media screen and (max-width: 600px) {
-  .sec-about {
-    background-image: none;
+  .sec-about-img {
+    position: static;
+    margin-top: -2em;
+    margin-bottom: 2em;
+    width: 100%;
   }
   .sec-about-inner {
     padding-left: 0;

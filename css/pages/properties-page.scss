@@ -1,0 +1,59 @@
+.properties-page {
+    section {
+        padding: 2em 0;
+
+        .headline-1 {
+            margin-top: 0;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .sub-headline {
+            margin: 1em 0 2em;
+            text-align: center;
+        }
+    }
+
+    .sec-intro {
+        margin-bottom: 2em;
+        padding: 0;
+
+        &-inner {
+            height: 50vh;
+            min-height: 25em;
+        }
+
+        .slogan {
+            h1 {
+                margin-top: 2em;
+            }
+        }
+    }
+
+    .sec-properties {
+        .headline {
+            margin-bottom: 1.2em;
+        }
+        .properties-list {
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+    }
+
+    .sec-about {
+        margin: 2em 0;
+
+        .headline, .sub-headline {
+            text-align: left;
+        }
+    }
+
+    .sec-newsletter {
+        margin-top: 1em;
+        border-top: 2px solid $colorLightGray;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+}

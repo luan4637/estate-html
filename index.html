@@ -38,8 +38,8 @@
                         </label>
                         <menu class="navs">
                             <li><a href="/" class="actived">Home</a></li>
-                            <li><a href="/">Buy</a></li>
-                            <li><a href="/">Rent</a></li>
+                            <li><a href="/properties.html">Buy</a></li>
+                            <li><a href="/properties.html">Rent</a></li>
                             <li><a href="/">Contact</a></li>
                         </menu>
                         <ul class="nav-user">
@@ -60,7 +60,7 @@
                                     doloremque laudantium</h2>
                             </div>
                             <div class="search-form">
-                                <form id="search-form" action="#list-types" method="GET">
+                                <form id="search-form" action="/properties.html" method="GET">
                                     <select id="search-location" name="search-location" class="select select-location">
                                         <button><selectedcontent></selectedcontent></button>
                                         <option value=""><span>-- Loading --</span></option>
@@ -134,6 +134,9 @@
                 </section>
 
                 <section class="sec-about">
+                    <div class="sec-about-img">
+                        <img src="/img/about-bg.jpg" alt="About Us" />
+                    </div>
                     <div class="container">
                         <div class="sec-about-inner">
                             <h2 class="headline headline-1">About Us</h2>
@@ -231,7 +234,7 @@
                                     <li class="actived"><a href="#" data-type-id="0">All</a></li>
                                 </ul>
                             </div>
-                            <ul id="properties-list" class="properties-list"></ul>
+                            <ul id="properties-list" class="properties-list" data-items-per-page="6"></ul>
                             <template id="property-template">
                                 <div class="property-item">
                                     <figure>

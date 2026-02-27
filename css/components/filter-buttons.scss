@@ -1,4 +1,16 @@
 .filter-buttons {
+    .select-group {
+        margin-bottom: 0.7em;
+
+        .select {
+            &-location {
+                width: 18em;
+            }
+            &-rent {
+                width: 12em;
+            }
+        }
+    }
     ul {
         margin: 0;
         padding: 0;

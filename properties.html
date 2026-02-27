@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estate Demo</title>
+        <meta name="description" content="Estate HTML site">
+        <link rel="icon" type="image/x-icon" href="/favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="https://unpkg.com/@supabase/supabase-js@2" async></script>
+        <script src="js/functions.js" fetchpriority="high"></script>
+        <script type="module" src="js/query.js" defer></script>
+        <script src="js/app.js" defer></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RDK4BQ9TSR"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-RDK4BQ9TSR', { 'debug_mode': false });
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="container">
+                    <div class="header-inner">
+                        <div class="logo"><a href="/"><img src="img/logo.png" alt="LOGO" /></a></div>
+                        <input type="checkbox" id="main_nav" />
+                        <label for="main_nav" class="navicon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                        <menu class="navs">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/properties.html" class="actived">Buy</a></li>
+                            <li><a href="/properties.html">Rent</a></li>
+                            <li><a href="/">Contact</a></li>
+                        </menu>
+                        <ul class="nav-user">
+                            <li><a href="/" class="btn btn-second">Login</a></li>
+                            <li><a href="/" class="btn btn-primary">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <main class="properties-page">
+                <section class="sec-intro">
+                    <div class="container">
+                        <div class="sec-intro-inner">
+                            <div class="slogan">
+                                <h1>Where does it come from?</h1>
+                                <h2>Sed ut perspiciatis unde omnis iste 
+                                    natus error sit voluptatem accusantium 
+                                    doloremque laudantium</h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="sec-properties">
+                    <div class="container">
+                        <div class="sec-properties-inner">
+                            <h2 class="headline headline-1">The standard Lorem Ipsum passage</h2>
+                            <div id="properties-filter" class="filter-buttons">
+                                <div class="select-group">
+                                    <select id="search-location" name="search-location" class="select select-location" fetch-on-change="1" bind-value="1">
+                                        <button><selectedcontent></selectedcontent></button>
+                                        <option value=""><span>-- Loading --</span></option>
+                                        <option value="0"><span>-- Select a Location --</span></option>
+                                    </select>
+                                    <select id="search-listingType" name="search-listingType" class="select select-rent" fetch-on-change="1" bind-value="1">
+                                        <button><selectedcontent></selectedcontent></button>
+                                        <option value=""><span>-- Loading --</span></option>
+                                        <option value="0"><span>-- All Listing --</span></option>
+                                    </select>
+                                    <input type="hidden" name="search-propertyType" value="0" />
+                                </div>
+                                <ul id="list-types" bind-value="1">
+                                    <li class="actived"><a href="#" data-type-id="0">All</a></li>
+                                </ul>
+                            </div>
+                            <ul id="properties-list" class="properties-list" data-items-per-page="15"></ul>
+                            <template id="property-template">
+                                <div class="property-item">
+                                    <figure>
+                                        <a href="javascript:void(0)"><img src="" alt="" class="js-property-item-image" /></a>
+                                    </figure>
+                                    <h3 class="js-property-item-median-price">---</h3>
+                                    <ul>
+                                        <li><i class="fa fa-bed"></i><span class="js-property-item-bed">-</span> Beds</li>
+                                        <li><i class="fa fa-bath"></i><span class="js-property-item-bath">-</span> Baths</li>
+                                        <li><i class="fa fa-car"></i><span class="js-property-item-park">-</span> Park</li>
+                                        <li><i class="fa fa-object-group"></i><span class="js-property-item-square">-</span> sqft</li>
+                                    </ul>
+                                    <p><i class="fa fa-map"></i><span class="js-property-item-address">---</span></p>
+                                    <div class="btns"><a href="javascript:void(0)" class="btn btn-primary">View</a></div>
+                                </div>
+                            </template>
+                            <div class="pagination">
+                                <ul id="pagination"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec-newsletter">
+                    <div class="container">
+                        <div class="sec-newsletter-inner">
+                            <div>
+                                <h2>Join our newsletter</h2>
+                                <p>Sed ut perspiciatis unde omnis 
+                                    sit voluptatem accusantium</p>
+                            </div>
+                            <form autocomplete="off">
+                                <input type="email" id="email" name="email" placeholder="Your email address" />
+                                <button type="button" class="btn btn-second">Subcribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer>
+                <div class="container">
+                    <div class="footer-inner">
+                        <div class="col col-1">
+                            <a class="logo" href="#"><img src="img/logo.png" alt="" /></a>
+                            <p>Sed ut perspiciatis unde omnis iste natus error 
+                                sit voluptatem accusantium doloremque laudantium.</p>
+                            <h5>Follow us on Social Media</h5>
+                            <ul class="socials">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col col-2">
+                            <h4>Services</h4>
+                            <ul>
+                                <li><a href="#">Flexible Payment Solutions</a></li>
+                                <li><a href="#">Effortless Transactions</a></li>
+                                <li><a href="#">Partnerships</a></li>
+                                <li><a href="#">Meet Retailer</a></li>
+                            </ul>
+                        </div>
+                        <div class="col col-3">
+                            <h4>Contact</h4>
+                            <p><i class="fa fa-phone-square"></i>(+1)123-123-123</p>
+                            <p><i class="fa fa-envelope"></i>luan4637@gmail.com</p>
+                            <p><i class="fa fa-map"></i>20 Cooper Square, New York, NY 10003</p>
+                        </div>
+                        <div class="footer-bottom">
+                            <div class="copyright">
+                                &copy;2026 All rights reserved.
+                            </div>
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Teams of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
