@@ -1,8 +1,8 @@
 .filter-buttons {
     .select-group {
-        margin-bottom: 0.7em;
-
         .select {
+            margin-bottom: 0.7em;
+
             &-location {
                 width: 18em;
             }
@@ -40,6 +40,19 @@
 
                 &:hover {
                     background-color: $colorLightGray;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .filter-buttons {
+        .select-group {
+            .select {
+                &-location,
+                &-rent {
+                    width: 100%;
                 }
             }
         }

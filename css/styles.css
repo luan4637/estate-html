@@ -389,7 +389,7 @@ footer .footer-bottom ul li a:hover {
   color: #444;
 }
 
-.filter-buttons .select-group {
+.filter-buttons .select-group .select {
   margin-bottom: 0.7em;
 }
 .filter-buttons .select-group .select-location {
@@ -424,6 +424,11 @@ footer .footer-bottom ul li a:hover {
   background-color: #eee;
 }
 
+@media screen and (max-width: 600px) {
+  .filter-buttons .select-group .select-location, .filter-buttons .select-group .select-rent {
+    width: 100%;
+  }
+}
 .properties-list {
   display: flex;
   flex-wrap: wrap;
@@ -973,6 +978,7 @@ footer .footer-bottom ul li a:hover {
 .properties-page .sec-intro {
   margin-bottom: 2em;
   padding: 0;
+  background-image: url(../img/property-page-bg.jpg);
 }
 .properties-page .sec-intro-inner {
   height: 50vh;

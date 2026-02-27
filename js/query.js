@@ -75,7 +75,9 @@ const loadDropDown = async (name, hasIcon = false) => {
             if (dropdown.getAttribute('bind-value')) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const value = urlParams.get('search-' + name);
-                dropdown.value = value;
+                if (value) {
+                    dropdown.value = value;
+                }
             }
         }).catch((err) => {
             console.error(err);
@@ -105,10 +107,12 @@ promiseTypes.then((data) => {
     if (listTypes.getAttribute('bind-value')) {
         const urlParams = new URLSearchParams(window.location.search);
         const value = urlParams.get('search-propertyType');
-        listTypes.querySelectorAll('li').forEach((ele) => {
-            ele.classList.remove('actived');
-        });
-        listTypes.querySelector('[data-type-id="' + value + '"]').parentNode.classList.add('actived');
+        if (value) {
+            listTypes.querySelectorAll('li').forEach((ele) => {
+                ele.classList.remove('actived');
+            });
+            listTypes.querySelector('[data-type-id="' + value + '"]').parentNode.classList.add('actived');
+        }
     }
 }).catch((err) => {
     console.error(err);
