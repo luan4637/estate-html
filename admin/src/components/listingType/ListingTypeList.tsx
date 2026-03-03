@@ -5,15 +5,12 @@ import {
     DataTable,
     DateField,
     BooleanField,
-    Pagination,
-    EditButton,
-    DeleteButton,
-    CreateButton
+    Pagination
 } from 'react-admin';
 
-export const LocationList = () => {
+export const ListingTypeList = () => {
     const { data, isPending, error } = useGetList(
-        'location',
+        'listingType',
         { pagination: { page: 1, perPage: 100 } },
     );
 
@@ -30,16 +27,11 @@ export const LocationList = () => {
 
     return (
         <ListContextProvider value={listContext}>
-            <h1>Locations Management</h1>
-            <CreateButton />
+            <h1>Listing Management</h1>
             <DataTable rowClick={false}>
                 <DataTable.Col source="name" />
                 <DataTable.Col source="created_at" field={DateField} />
                 <DataTable.Col source="actived" field={BooleanField} />
-                <DataTable.Col>
-                    <EditButton />
-                    <DeleteButton mutationMode="optimistic" />
-                </DataTable.Col>
             </DataTable>
             <Pagination />
         </ListContextProvider>

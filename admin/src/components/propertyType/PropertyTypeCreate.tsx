@@ -1,23 +1,21 @@
 import {
-    Edit,
+    Create,
     SimpleForm,
     TextInput,
     BooleanInput,
-    DateInput,
     required
 } from 'react-admin';
 
 import { FormActionToolbar } from '../common/FormActionToolbar';
 
-export const LocationEdit = () => {
+export const PropertyTypeCreate = () => {
     return (
-        <Edit>
+        <Create disableAuthentication>
             <SimpleForm toolbar={<FormActionToolbar />}>
-                <TextInput disabled label="Id" source="id" />
                 <TextInput source="name" validate={required()} />
-                <BooleanInput source="actived" />
-                <DateInput label="Created date" source="created_at" disabled />
+                <TextInput source="icon" />
+                <BooleanInput source="actived" defaultValue={true} />
             </SimpleForm>
-        </Edit>
+        </Create>
     )
 };

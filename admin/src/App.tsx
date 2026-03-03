@@ -18,7 +18,11 @@ import {
     supabaseAuthProvider
 } from 'ra-supabase';   
 
+import { PropertyList, PropertyEdit, PropertyCreate } from './components/property';
 import { LocationList, LocationEdit, LocationCreate } from './components/location';
+import { PropertyTypeList, PropertyTypeEdit, PropertyTypeCreate } from './components/propertyType';
+import { ListingTypeList } from './components/listingType';
+
 
 const instanceUrl = import.meta.env.VITE_SUPABASE_URL;
 const apiKey = import.meta.env.VITE_SUPABASE_API_KEY;
@@ -34,7 +38,10 @@ export const App = () => (
             i18nProvider={defaultI18nProvider}
             loginPage={LoginPage}
         >
+            <Resource name="property" list={PropertyList} edit={PropertyEdit} create={PropertyCreate} />
             <Resource name="location" list={LocationList} edit={LocationEdit} create={LocationCreate} />
+            <Resource name="propertyType" list={PropertyTypeList} edit={PropertyTypeEdit} create={PropertyTypeCreate} />
+            <Resource name="listingType" list={ListingTypeList}  />
             {/* <Resource name="property" list={ListGuesser} edit={EditGuesser} create={CreateGuesser} show={ShowGuesser} />
             <Resource name="propertyType" list={ListGuesser} edit={EditGuesser} create={CreateGuesser} show={ShowGuesser} />
             <Resource name="listingType" list={ListGuesser} edit={EditGuesser} create={CreateGuesser} show={ShowGuesser} />

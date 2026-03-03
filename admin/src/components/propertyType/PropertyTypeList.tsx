@@ -11,9 +11,9 @@ import {
     CreateButton
 } from 'react-admin';
 
-export const LocationList = () => {
+export const PropertyTypeList = () => {
     const { data, isPending, error } = useGetList(
-        'location',
+        'propertyType',
         { pagination: { page: 1, perPage: 100 } },
     );
 
@@ -30,11 +30,12 @@ export const LocationList = () => {
 
     return (
         <ListContextProvider value={listContext}>
-            <h1>Locations Management</h1>
+            <h1>Property Type Management</h1>
             <CreateButton />
             <DataTable rowClick={false}>
                 <DataTable.Col source="name" />
                 <DataTable.Col source="created_at" field={DateField} />
+                <DataTable.Col source="icon" />
                 <DataTable.Col source="actived" field={BooleanField} />
                 <DataTable.Col>
                     <EditButton />

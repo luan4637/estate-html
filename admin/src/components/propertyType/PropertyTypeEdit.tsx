@@ -1,5 +1,4 @@
-import {
-    Edit,
+import { Edit,
     SimpleForm,
     TextInput,
     BooleanInput,
@@ -9,12 +8,13 @@ import {
 
 import { FormActionToolbar } from '../common/FormActionToolbar';
 
-export const LocationEdit = () => {
+export const PropertyTypeEdit = () => {
     return (
         <Edit>
             <SimpleForm toolbar={<FormActionToolbar />}>
                 <TextInput disabled label="Id" source="id" />
                 <TextInput source="name" validate={required()} />
+                <TextInput source="icon" />
                 <BooleanInput source="actived" />
                 <DateInput label="Created date" source="created_at" disabled />
             </SimpleForm>
