@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: true,
   },
   build: {
+    outDir: '../admin',
     // sourcemap: mode === "development",
   },
   base: "./",

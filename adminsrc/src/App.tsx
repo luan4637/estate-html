@@ -31,8 +31,9 @@ const dataProvider = supabaseDataProvider({ instanceUrl, apiKey, supabaseClient 
 const authProvider = supabaseAuthProvider(supabaseClient, {});
 
 export const App = () => (
-    <BrowserRouter>
+    <BrowserRouter basename="/admin">
         <Admin
+            
             dataProvider={dataProvider}
             authProvider={authProvider}
             i18nProvider={defaultI18nProvider}

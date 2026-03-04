@@ -1,7 +1,5 @@
 import {
-    useGetList,
-    useList,
-    ListContextProvider,
+    ListBase,
     FilterForm,
     FilterButton,
     DataTable,
@@ -13,23 +11,14 @@ import {
     DeleteButton,
     CreateButton,
     TextInput,
-    SelectInput,
     TextField,
-    ReferenceInput
+    ReferenceInput,
+    NumberField
 } from 'react-admin';
 
 import { Stack } from '@mui/material';
 
 export const PropertyList = () => {
-    const { data, isPending, error } = useGetList(
-        'property',
-        { pagination: { page: 1, perPage: 100 } },
-    );
-
-    if (error) {
-        return <p>Something went wrong!</p>;
-    }
-
     const propertyFilters = [
         <TextInput label="Search" source="q" alwaysOn />,
         <ReferenceInput label="Location" source="location_id" reference="location" />,
@@ -49,35 +38,37 @@ export const PropertyList = () => {
         </Stack>
     );
 
-    const listContext = useList({ 
-        data,
-        isPending,
-        perPage: 10,
-        sort: { field: 'id', order: 'ASC' }
-    });
-
     return (
-        <ListContextProvider value={listContext}>
+        <ListBase
+            resource="property"
+            sort={{ field: 'created_at', order: 'DESC' }}
+        >
             <h1>Properties Management</h1>
             <ListToolbar />
-            <DataTable rowClick={false}>
+            <DataTable rowClick={false} bulkActionButtons={false}>
                 <DataTable.Col source="title" />
                 <DataTable.Col source="location_id" label="Location">
-                    <ReferenceField source="location_id" reference="location">
+                    <ReferenceField source="location_id" reference="location" link={false}>
                         <TextField source="name" />
                     </ReferenceField>
                 </DataTable.Col>
-                <DataTable.Col source="property_type_id" label="PropertyType ">
-                    <ReferenceField source="property_type_id" reference="propertyType">
+                <DataTable.Col source="property_type_id" label="Property Type ">
+                    <ReferenceField source="property_type_id" reference="propertyType" link={false}>
                         <TextField source="name" />
                     </ReferenceField>
                 </DataTable.Col>
                 <DataTable.Col source="listing_type_id" label="Listing Type">
-                    <ReferenceField source="listing_type_id" reference="listingType">
+                    <ReferenceField source="listing_type_id" reference="listingType" link={false}>
                         <TextField source="name" />
                     </ReferenceField>
                 </DataTable.Col>
-                <DataTable.Col source="created_at" field={DateField} />
+                <DataTable.Col label="Median Price">
+                    $<NumberField source="median_price" />
+                </DataTable.Col>
+                <DataTable.Col label="Median Rent">
+                    $<NumberField source="median_rent" />
+                </DataTable.Col>
+                <DataTable.Col source="created_at" field={DateField} label="Created Date" />
                 <DataTable.Col source="actived" field={BooleanField} />
                 <DataTable.Col>
                     <EditButton />
@@ -85,6 +76,6 @@ export const PropertyList = () => {
                 </DataTable.Col>
             </DataTable>
             <Pagination />
-        </ListContextProvider>
+        </ListBase>
     )
 };
