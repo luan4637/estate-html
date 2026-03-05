@@ -131,7 +131,7 @@ if (latestProperties) {
             for (let item of data) {
                 const eleLiTag = document.createElement('li');
                 const clone = document.importNode(template.content, true);
-                clone.querySelector('.js-latest-item-image').src = item.image;
+                clone.querySelector('.js-latest-item-image').src = item.image_url;
                 clone.querySelector('.js-latest-item-image').alt = item.title;
                 clone.querySelector('.js-latest-item-title-h3').textContent = item.title;
                 clone.querySelector('.js-latest-item-title-h4').textContent = item.title;
@@ -176,7 +176,7 @@ const fetchPaginationProperties = (locationId, listingTypeId, propertyTypeId, pa
             for (let item of data) {
                 const eleLiTag = document.createElement('li');
                 const clone = document.importNode(template.content, true);
-                clone.querySelector('.js-property-item-image').src = item.image;
+                clone.querySelector('.js-property-item-image').src = item.image_url;
                 clone.querySelector('.js-property-item-image').alt = item.title;
                 clone.querySelector('.js-property-item-address').textContent = item.address;
 
