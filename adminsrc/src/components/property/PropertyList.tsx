@@ -13,7 +13,8 @@ import {
     TextInput,
     TextField,
     ReferenceInput,
-    NumberField
+    NumberField,
+    ImageField
 } from 'react-admin';
 
 import { Stack } from '@mui/material';
@@ -46,6 +47,17 @@ export const PropertyList = () => {
             <h1>Properties Management</h1>
             <ListToolbar />
             <DataTable rowClick={false} bulkActionButtons={false}>
+                <DataTable.Col>
+                    <ImageField source="image_url"
+                        sx={{
+                            '& img': {
+                                maxWidth: 100,
+                                maxHeight: 100,
+                                objectFit: 'contain'
+                            }
+                        }}
+                    />
+                </DataTable.Col>
                 <DataTable.Col source="title" />
                 <DataTable.Col source="location_id" label="Location">
                     <ReferenceField source="location_id" reference="location" link={false}>
@@ -68,8 +80,12 @@ export const PropertyList = () => {
                 <DataTable.Col label="Median Rent">
                     $<NumberField source="median_rent" />
                 </DataTable.Col>
-                <DataTable.Col source="created_at" field={DateField} label="Created Date" />
-                <DataTable.Col source="actived" field={BooleanField} />
+                <DataTable.Col label="Created Date/Active">
+                    <DateField source="created_at" />
+                    <br />
+                    Active: 
+                    <BooleanField source="actived" />
+                </DataTable.Col>
                 <DataTable.Col>
                     <EditButton />
                     <DeleteButton mutationMode="optimistic" />

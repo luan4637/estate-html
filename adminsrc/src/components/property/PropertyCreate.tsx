@@ -7,6 +7,8 @@ import {
     SelectInput,
     RadioButtonGroupInput,
     NumberInput,
+    ImageInput,
+    ImageField,
     required
 } from 'react-admin';
 import { RichTextInput } from 'ra-input-rich-text';
@@ -24,7 +26,9 @@ export const PropertyCreate = () => {
                     <ReferenceInput label="Listing Type" source="listing_type_id" reference="listingType">
                         <RadioButtonGroupInput optionText="name" />
                     </ReferenceInput>
-                    {/* <TextInput source="image" /> */}
+                    <ImageInput source="image" multiple={false}>
+                        <ImageField source="src" />
+                    </ImageInput>
                     <Stack direction={'row'} spacing={2}>
                         <ReferenceInput label="Location" source="location_id" reference="location">
                             <SelectInput optionText="name" optionValue="id" validate={required()} />
