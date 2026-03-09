@@ -9,14 +9,18 @@ import {
     CreateButton
 } from 'react-admin';
 
+import { Stack } from '@mui/material';
+
 export const LocationList = () => {
     return (
         <ListBase
             resource="location"
             sort={{ field: 'created_at', order: 'DESC' }}
         >
-            <h1>Locations Management</h1>
-            <CreateButton />
+            <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+                <h2>Locations Management</h2>
+                <CreateButton />
+            </Stack>
             <DataTable rowClick={false}>
                 <DataTable.Col source="name" />
                 <DataTable.Col source="created_at" field={DateField} />

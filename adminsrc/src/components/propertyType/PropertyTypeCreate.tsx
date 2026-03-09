@@ -10,12 +10,15 @@ import { FormActionToolbar } from '../common/FormActionToolbar';
 
 export const PropertyTypeCreate = () => {
     return (
-        <Create disableAuthentication>
-            <SimpleForm toolbar={<FormActionToolbar />}>
-                <TextInput source="name" validate={required()} />
-                <TextInput source="icon" />
-                <BooleanInput source="actived" defaultValue={true} />
-            </SimpleForm>
-        </Create>
+        <div>
+            <h2>Create New Property Type</h2>
+            <Create disableAuthentication>
+                <SimpleForm toolbar={<FormActionToolbar />}>
+                    <TextInput source="name" validate={required()} />
+                    <TextInput source="icon" />
+                    <BooleanInput source="actived" defaultValue={true} />
+                </SimpleForm>
+            </Create>
+        </div>
     )
 };

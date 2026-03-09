@@ -8,6 +8,8 @@ import {
     Pagination
 } from 'react-admin';
 
+import { Stack } from '@mui/material';
+
 export const ListingTypeList = () => {
     const { data, isPending, error } = useGetList(
         'listingType',
@@ -27,7 +29,9 @@ export const ListingTypeList = () => {
 
     return (
         <ListContextProvider value={listContext}>
-            <h1>Listing Management</h1>
+            <Stack direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
+                <h2>Listing Management</h2>
+            </Stack>
             <DataTable rowClick={false}>
                 <DataTable.Col source="name" />
                 <DataTable.Col source="created_at" field={DateField} />

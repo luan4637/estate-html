@@ -10,11 +10,14 @@ import { FormActionToolbar } from '../common/FormActionToolbar';
 
 export const LocationCreate = () => {
     return (
-        <Create disableAuthentication>
-            <SimpleForm toolbar={<FormActionToolbar />}>
-                <TextInput source="name" validate={required()} />
-                <BooleanInput source="actived" defaultValue={true} />
-            </SimpleForm>
-        </Create>
+        <div>
+            <h2>Create New Location</h2>
+            <Create disableAuthentication>
+                <SimpleForm toolbar={<FormActionToolbar />}>
+                    <TextInput source="name" validate={required()} />
+                    <BooleanInput source="actived" defaultValue={true} />
+                </SimpleForm>
+            </Create>
+        </div>
     )
 };

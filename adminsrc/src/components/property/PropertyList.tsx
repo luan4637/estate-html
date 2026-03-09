@@ -44,7 +44,7 @@ export const PropertyList = () => {
             resource="property"
             sort={{ field: 'created_at', order: 'DESC' }}
         >
-            <h1>Properties Management</h1>
+            <h2>Properties Management</h2>
             <ListToolbar />
             <DataTable rowClick={false} bulkActionButtons={false}>
                 <DataTable.Col>
