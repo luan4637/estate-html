@@ -39,8 +39,8 @@
                         </label>
                         <menu class="navs">
                             <li><a href="/" class="actived">Home</a></li>
-                            <li><a href="/properties.html">Buy</a></li>
-                            <li><a href="/properties.html">Rent</a></li>
+                            <li><a href="/properties.html?search-listingType=1">Buy</a></li>
+                            <li><a href="/properties.html?search-listingType=2">Rent</a></li>
                             <li><a href="/">Contact</a></li>
                         </menu>
                         <ul class="nav-user">
@@ -67,12 +67,12 @@
                                         <option value=""><span>-- Loading --</span></option>
                                         <option value="0"><span>-- Select a Location --</span></option>
                                     </select>
-                                    <select id="search-listingType" name="search-listingType" class="select select-rent">
+                                    <select id="search-listingType" name="search-listingType" class="select select-listing-type">
                                         <button><selectedcontent></selectedcontent></button>
                                         <option value=""><span>-- Loading --</span></option>
                                         <option value="0"><span>-- All Listing --</span></option>
                                     </select>
-                                    <select id="search-propertyType" name="search-propertyType" class="select select-house">
+                                    <select id="search-propertyType" name="search-propertyType" class="select select-property-type">
                                         <button><selectedcontent></selectedcontent></button>
                                         <option value=""><span>-- Loading --</span></option>
                                         <option value="0"><span>-- All Property --</span></option>
@@ -266,10 +266,13 @@
                                 <p>Sed ut perspiciatis unde omnis 
                                     sit voluptatem accusantium</p>
                             </div>
-                            <form autocomplete="off">
-                                <input type="email" id="email" name="email" placeholder="Your email address" />
-                                <button type="button" class="btn btn-second">Subcribe</button>
+                            <form id="form-newsletter" autocomplete="off">
+                                <input type="email" id="email" name="email" required placeholder="Your email address" />
+                                <button type="submit" class="btn btn-second">Subcribe</button>
                             </form>
+                            <div class="sec-newsletter-success-msg js-newsletter-success-msg">
+                                Thank you for your email subscription
+                            </div>
                         </div>
                     </div>
                 </section>

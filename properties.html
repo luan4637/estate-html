@@ -38,8 +38,8 @@
                         </label>
                         <menu class="navs">
                             <li><a href="/">Home</a></li>
-                            <li><a href="/properties.html" class="actived">Buy</a></li>
-                            <li><a href="/properties.html">Rent</a></li>
+                            <li><a href="/properties.html?search-listingType=1">Buy</a></li>
+                            <li><a href="/properties.html?search-listingType=2">Rent</a></li>
                             <li><a href="/">Contact</a></li>
                         </menu>
                         <ul class="nav-user">
@@ -74,7 +74,7 @@
                                         <option value=""><span>-- Loading --</span></option>
                                         <option value="0"><span>-- Select a Location --</span></option>
                                     </select>
-                                    <select id="search-listingType" name="search-listingType" class="select select-rent" fetch-on-change="1" bind-value="1">
+                                    <select id="search-listingType" name="search-listingType" class="select select-listing-type" fetch-on-change="1" bind-value="1">
                                         <button><selectedcontent></selectedcontent></button>
                                         <option value=""><span>-- Loading --</span></option>
                                         <option value="0"><span>-- All Listing --</span></option>

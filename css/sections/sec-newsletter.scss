@@ -16,6 +16,10 @@
         form {
             position: relative;
 
+            &.hidden {
+                display: none;
+            }
+
             input, .btn {
                 height: 2.5em;
                 font-size: 1em;
@@ -48,7 +52,7 @@
     h2, p {
         margin: 0;
         font-size: 1em;
-        text-shadow: 1px 1px 0 $colorBlack;
+        text-shadow: 0 0 0.2em $colorBlack;
         color: $colorWhite;
     }
 
@@ -59,6 +63,18 @@
     p {
         margin-top: 0.6em;
         line-height: 1.4;
+    }
+
+    &-success-msg {
+        display: none;
+        font-size: 1.2em;
+        text-align: right;
+        text-shadow: 0 0 0.2em $colorBlack;
+        color: #fff;
+
+        &.show {
+            display: block;
+        }
     }
 }
 

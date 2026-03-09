@@ -229,6 +229,17 @@ pagination.addEventListener('click', (event) => {
 });
 //-----------------------
 
+// submit newsletter
+const formNewsletter = document.getElementById('form-newsletter');
+const newsletterSuccessMsg = document.querySelector('.js-newsletter-success-msg');
+formNewsletter.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    event.currentTarget.classList.add('hidden');
+    newsletterSuccessMsg.classList.add('show');
+});
+//-----------------------
+
 // search form submit
 // const searchForm = document.getElementById('search-form');
 // if (searchForm) {

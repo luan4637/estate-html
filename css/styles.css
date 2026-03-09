@@ -395,7 +395,7 @@ footer .footer-bottom ul li a:hover {
 .filter-buttons .select-group .select-location {
   width: 18em;
 }
-.filter-buttons .select-group .select-rent {
+.filter-buttons .select-group .select-listing-type {
   width: 12em;
 }
 .filter-buttons ul {
@@ -425,7 +425,7 @@ footer .footer-bottom ul li a:hover {
 }
 
 @media screen and (max-width: 600px) {
-  .filter-buttons .select-group .select-location, .filter-buttons .select-group .select-rent {
+  .filter-buttons .select-group .select-location, .filter-buttons .select-group .select-listing-type {
     width: 100%;
   }
 }
@@ -920,10 +920,10 @@ footer .footer-bottom ul li a:hover {
 .select-location {
   flex: 2;
 }
-.select-rent {
+.select-listing-type {
   flex: 1;
 }
-.select-house {
+.select-property-type {
   flex: 1;
 }
 
@@ -1097,7 +1097,7 @@ footer .footer-bottom ul li a:hover {
   .sec-intro .search-form form {
     width: 100%;
   }
-  .sec-intro .search-form form .select-location, .sec-intro .search-form form .select-rent {
+  .sec-intro .search-form form .select-listing-type, .sec-intro .search-form form .select-property-type {
     display: none;
   }
 }
@@ -1117,6 +1117,9 @@ footer .footer-bottom ul li a:hover {
 }
 .sec-newsletter-inner form {
   position: relative;
+}
+.sec-newsletter-inner form.hidden {
+  display: none;
 }
 .sec-newsletter-inner form input, .sec-newsletter-inner form .btn {
   height: 2.5em;
@@ -1144,7 +1147,7 @@ footer .footer-bottom ul li a:hover {
 .sec-newsletter h2, .sec-newsletter p {
   margin: 0;
   font-size: 1em;
-  text-shadow: 1px 1px 0 #000;
+  text-shadow: 0 0 0.2em #000;
   color: #fff;
 }
 .sec-newsletter h2 {
@@ -1153,6 +1156,16 @@ footer .footer-bottom ul li a:hover {
 .sec-newsletter p {
   margin-top: 0.6em;
   line-height: 1.4;
+}
+.sec-newsletter-success-msg {
+  display: none;
+  font-size: 1.2em;
+  text-align: right;
+  text-shadow: 0 0 0.2em #000;
+  color: #fff;
+}
+.sec-newsletter-success-msg.show {
+  display: block;
 }
 
 @media screen and (max-width: 600px) {

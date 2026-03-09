@@ -6,7 +6,7 @@
             &-location {
                 width: 18em;
             }
-            &-rent {
+            &-listing-type {
                 width: 12em;
             }
         }
@@ -51,7 +51,7 @@
         .select-group {
             .select {
                 &-location,
-                &-rent {
+                &-listing-type {
                     width: 100%;
                 }
             }

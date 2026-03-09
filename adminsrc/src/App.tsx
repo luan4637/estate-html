@@ -1,22 +1,16 @@
 import { 
     Admin,
-    Resource,
-    CustomRoutes,
-    ListGuesser,
-    ShowGuesser,
-    EditGuesser
+    Resource
 } from 'react-admin';
-import { BrowserRouter, HashRouter, Route } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { createClient } from '@supabase/supabase-js';
 import {
-    CreateGuesser,
-    ForgotPasswordPage,
-    // LoginPage,
-    SetPasswordPage,
     defaultI18nProvider,
     supabaseDataProvider,
     supabaseAuthProvider
 } from 'ra-supabase';   
+
+import { GpsFixed, MapsHomeWork, LocalOffer, Bookmark } from '@mui/icons-material';
 
 import { PropertyList, PropertyEdit, PropertyCreate } from './components/property';
 import { LocationList, LocationEdit, LocationCreate } from './components/location';
@@ -99,14 +93,10 @@ export const App = () => (
             i18nProvider={defaultI18nProvider}
             loginPage={LoginPage}
         >
-            <Resource name="property" list={PropertyList} edit={PropertyEdit} create={PropertyCreate} />
-            <Resource name="location" list={LocationList} edit={LocationEdit} create={LocationCreate} />
-            <Resource name="propertyType" list={PropertyTypeList} edit={PropertyTypeEdit} create={PropertyTypeCreate} />
-            <Resource name="listingType" list={ListingTypeList}  />
-            {/* <CustomRoutes>
-                <Route path={SetPasswordPage.path} element={<SetPasswordPage />} />
-                <Route path={ForgotPasswordPage.path} element={<ForgotPasswordPage />} />
-            </CustomRoutes> */}
+            <Resource icon={MapsHomeWork} name="property" list={PropertyList} edit={PropertyEdit} create={PropertyCreate} />
+            <Resource icon={GpsFixed} name="location" list={LocationList} edit={LocationEdit} create={LocationCreate} />
+            <Resource icon={Bookmark} name="propertyType" list={PropertyTypeList} edit={PropertyTypeEdit} create={PropertyTypeCreate} />
+            <Resource icon={LocalOffer} name="listingType" list={ListingTypeList}  />
         </Admin>
     </HashRouter>
 );
