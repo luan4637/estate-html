@@ -1,0 +1,46 @@
+.details-page {
+    section {
+        padding: 2em 0;
+
+        .headline-1 {
+            margin-top: 0;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .sub-headline {
+            margin: 1em 0 2em;
+            text-align: center;
+        }
+    }
+
+    .sec-intro {
+        margin-bottom: 1em;
+        padding: 0;
+        background-image: url(../img/property-page-bg.jpg);
+
+        &-inner {
+            height: 50vh;
+            min-height: 25em;
+        }
+
+        .slogan {
+            h1 {
+                margin-top: 2em;
+            }
+        }
+    }
+
+    .sec-details {
+        
+    }
+
+    .sec-newsletter {
+        margin-top: 1em;
+        border-top: 2px solid $colorLightGray;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+}

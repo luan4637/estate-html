@@ -101,10 +101,12 @@ promiseTypes.then((data) => {
         eleATag.textContent = item.name;
         eleATag.setAttribute('data-type-id', item.id);
         eleLiTag.appendChild(eleATag);
-        listTypes.appendChild(eleLiTag);
+        if (listTypes) {
+            listTypes.appendChild(eleLiTag);
+        }
     }
 
-    if (listTypes.getAttribute('bind-value')) {
+    if (listTypes && listTypes.getAttribute('bind-value')) {
         const urlParams = new URLSearchParams(window.location.search);
         const value = urlParams.get('search-propertyType');
         if (value) {
@@ -133,7 +135,9 @@ if (latestProperties) {
                 const clone = document.importNode(template.content, true);
                 clone.querySelector('.js-latest-item-image').src = item.image_url;
                 clone.querySelector('.js-latest-item-image').alt = item.title;
+                clone.querySelector('.js-latest-item-image').parentNode.href = 'details.html?id=' + item.id;
                 clone.querySelector('.js-latest-item-title-h3').textContent = item.title;
+                clone.querySelector('.js-latest-item-title-h3').parentNode.href = 'details.html?id=' + item.id;
                 clone.querySelector('.js-latest-item-title-h4').textContent = item.title;
                 clone.querySelector('.js-latest-item-description').textContent = item.description;
                 clone.querySelector('.js-latest-item-address').textContent = item.address;
@@ -163,6 +167,11 @@ if (latestProperties) {
 //bind data properties
 const fetchPaginationProperties = (locationId, listingTypeId, propertyTypeId, pageNumber, pageLimit) => {
     const propertiesList = document.getElementById('properties-list');
+
+    if (!propertiesList) {
+        return;
+    }
+    
     const itemsPerPage = propertiesList.getAttribute('data-items-per-page');
     pageLimit = itemsPerPage ? parseInt(itemsPerPage) : pageLimit;
     const promisePropertiesList = selectPropertiesQuery(locationId, listingTypeId, propertyTypeId, (pageNumber - 1) * pageLimit, pageLimit);
@@ -178,6 +187,8 @@ const fetchPaginationProperties = (locationId, listingTypeId, propertyTypeId, pa
                 const clone = document.importNode(template.content, true);
                 clone.querySelector('.js-property-item-image').src = item.image_url;
                 clone.querySelector('.js-property-item-image').alt = item.title;
+                clone.querySelector('.js-property-item-image').parentNode.href = 'details.html?id=' + item.id;
+                clone.querySelector('.js-property-item-btn-view').href = 'details.html?id=' + item.id;
                 clone.querySelector('.js-property-item-address').textContent = item.address;
 
                 clone.querySelector('.js-property-item-bed').textContent = item.bed;
@@ -197,36 +208,40 @@ const fetchPaginationProperties = (locationId, listingTypeId, propertyTypeId, pa
     });
 }
 fetchPaginationProperties(0, 0, 0, 1, 6);
-listTypes.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (event.target.hasAttribute('data-type-id')
-        && !event.target.parentNode.classList.contains('actived')
-    ) {
-        const locationId = document.querySelector('[name="search-location"]').value;
-        const listingId = document.querySelector('[name="search-listingType"]').value;
-        const propertyTypeId = parseInt(event.target.getAttribute('data-type-id'));
-        event.currentTarget.querySelectorAll('li').forEach((ele) => {
-            ele.classList.remove('actived');
-        });
-        event.target.parentNode.classList.add('actived');
+if (listTypes) {
+    listTypes.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (event.target.hasAttribute('data-type-id')
+            && !event.target.parentNode.classList.contains('actived')
+        ) {
+            const locationId = document.querySelector('[name="search-location"]').value;
+            const listingId = document.querySelector('[name="search-listingType"]').value;
+            const propertyTypeId = parseInt(event.target.getAttribute('data-type-id'));
+            event.currentTarget.querySelectorAll('li').forEach((ele) => {
+                ele.classList.remove('actived');
+            });
+            event.target.parentNode.classList.add('actived');
 
-        document.querySelector('[name="search-propertyType"]').value = propertyTypeId;
-        fetchPaginationProperties(locationId, listingId, propertyTypeId, 1, 6);
-    }
-});
+            document.querySelector('[name="search-propertyType"]').value = propertyTypeId;
+            fetchPaginationProperties(locationId, listingId, propertyTypeId, 1, 6);
+        }
+    });
+}
 
 const pagination = document.getElementById('pagination');
-pagination.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (event.target.hasAttribute('data-page-number')
-        && !event.target.classList.contains('actived')
-    ) {
-        const pageNumber = parseInt(event.target.getAttribute('data-page-number'));
-        window.location.hash = '';
-        fetchPaginationProperties(0, 0, 0, pageNumber, 6);
-        window.location.hash = 'properties-filter';
-    }
-});
+if (pagination) {
+    pagination.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (event.target.hasAttribute('data-page-number')
+            && !event.target.classList.contains('actived')
+        ) {
+            const pageNumber = parseInt(event.target.getAttribute('data-page-number'));
+            window.location.hash = '';
+            fetchPaginationProperties(0, 0, 0, pageNumber, 6);
+            window.location.hash = 'properties-filter';
+        }
+    });
+}
 //-----------------------
 
 // submit newsletter

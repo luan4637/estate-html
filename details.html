@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </header>
-            <main class="properties-page">
+            <main class="details-page">
                 <section class="sec-intro">
                     <div class="container">
                         <div class="sec-intro-inner">
@@ -63,48 +63,74 @@
                     </div>
                 </section>
                 
-                <section class="sec-properties">
+                <section class="sec-details">
                     <div class="container">
-                        <div class="sec-properties-inner">
-                            <h2 class="headline headline-1">The standard Lorem Ipsum passage</h2>
-                            <div id="properties-filter" class="filter-buttons">
-                                <div class="select-group">
-                                    <select id="search-location" name="search-location" class="select select-location" fetch-on-change="1" bind-value="1">
-                                        <button><selectedcontent></selectedcontent></button>
-                                        <option value=""><span>-- Loading --</span></option>
-                                        <option value="0"><span>-- Select a Location --</span></option>
-                                    </select>
-                                    <select id="search-listingType" name="search-listingType" class="select select-listing-type" fetch-on-change="1" bind-value="1">
-                                        <button><selectedcontent></selectedcontent></button>
-                                        <option value=""><span>-- Loading --</span></option>
-                                        <option value="0"><span>-- All Listing --</span></option>
-                                    </select>
-                                    <input type="hidden" name="search-propertyType" value="0" />
-                                </div>
-                                <ul id="list-types" bind-value="1">
-                                    <li class="actived"><a href="#" data-type-id="0">All</a></li>
+                        <div class="sec-details-inner">
+                            <h1 class="headline headline-2">Aliquam non mauris morbi non lectus aliquam sit amet diam</h1>
+                            <ul class="images-list">
+                                <li><figure><img src="/img/house6.jpg" alt="IMG1" /></figure></li>
+                                <li><figure><img src="/img/house7.jpg" alt="IMG2" /></figure></li>
+                                <li><figure><img src="/img/house8.jpg" alt="IMG3" /></figure></li>
+                                <li><figure><img src="/img/house9.jpg" alt="IMG4" /></figure></li>
+                            </ul>
+                            <p class="address"><i class="fa fa-map"></i><span class="js-property-item-address">0289 Paget Point, Oregon OR 97075</span></p>
+                            <ul class="features">
+                                <li><i class="fa fa-bed"></i><span class="js-property-item-bed">3</span> Beds</li>
+                                <li><i class="fa fa-bath"></i><span class="js-property-item-bath">2</span> Baths</li>
+                                <li><i class="fa fa-car"></i><span class="js-property-item-park">2</span> Park</li>
+                                <li><i class="fa fa-object-group"></i><span class="js-property-item-square">500</span> sqft</li>
+                            </ul>
+                            <div class="prices">
+                                <dl>
+                                    <dt><i class="fa fa-tag"></i>Median price</dt>
+                                    <dd class="js-property-item-median-price">$300,000</dd>
+                                </dl>
+                                <dl>
+                                    <dt><i class="fa fa-tag"></i>Weekly median rent</dt>
+                                    <dd class="js-property-item-median-rent">$500</dd>
+                                </dl>
+                                <dl>
+                                    <dt><i class="fa fa-tag"></i>Listed</dt>
+                                    <dd><span class="js-property-item-created">17</span> days ago</dd>
+                                </dl>
+                            </div>
+                            <div class="tabs" id="property-tabs">
+                                <ul class="tabs-labels">
+                                    <li data-tab-index="0" class="js-tab-label actived"><a href="#">Tab 1</a></li>
+                                    <li data-tab-index="1" class="js-tab-label"><a href="#">Tab 2</a></li>
+                                    <li data-tab-index="2" class="js-tab-label"><a href="#">Tab 3</a></li>
+                                </ul>
+                                <ul class="tabs-contents">
+                                    <li class="js-tab-content actived">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed ipsum iaculis, bibendum leo et, consequat lectus. Suspendisse ornare nisi vitae ante consequat iaculis. Cras sed tellus eu sapien varius commodo. Suspendisse gravida viverra nisi, nec egestas urna dapibus a. Phasellus non magna a odio maximus accumsan molestie et odio. In hac habitasse platea dictumst. Suspendisse interdum nibh in tellus tincidunt efficitur. Suspendisse potenti.</p>
+                                        <p>Sed sed est justo. Maecenas hendrerit accumsan ipsum, eget egestas nunc tempus nec. Praesent vitae sem a augue malesuada blandit. Curabitur rutrum nibh ac posuere feugiat. Cras consectetur magna scelerisque posuere vehicula. Vivamus rhoncus volutpat tempor. Suspendisse potenti. Proin rhoncus nec leo ac molestie.</p>
+                                        <p>Nam urna nunc, malesuada a purus accumsan, consectetur eleifend magna. Morbi ut suscipit odio. Nullam nec pulvinar neque. In ac tellus pellentesque, dictum nisi id, venenatis est.</p>
+                                        <p>Sed sit amet odio euismod, ultricies nulla id, vulputate enim. Praesent vestibulum lacinia ligula, quis condimentum purus consequat vitae. Aliquam molestie elementum pellentesque. Sed et varius leo. Maecenas venenatis massa ipsum, et hendrerit nunc suscipit id. Fusce congue ex placerat, rhoncus libero at, cursus lectus. Phasellus ornare arcu urna, id pulvinar nisl finibus vitae. Sed sed arcu quis arcu laoreet porta quis et sapien.</p>
+                                        <p>Nulla ac venenatis nisi. Integer nec lacinia ex. Suspendisse scelerisque nibh vitae scelerisque euismod. Proin rutrum tortor et lorem tempor convallis. Vestibulum fringilla enim libero, sed vulputate eros aliquam eu.</p>
+                                    </li>
+                                    <li class="js-tab-content">
+                                        <p>Content line 1 - tab 2</p>
+                                        <p>Content line 2 - tab 2</p>
+                                        <p>Content line 3 - tab 2</p>
+                                        <p>Content line 4 - tab 2</p>
+                                        <p>Content line 5 - tab 2</p>
+                                    </li>
+                                    <li class="js-tab-content">
+                                        <p>Content line 1 - tab 3</p>
+                                        <p>Content line 2 - tab 3</p>
+                                        <p>Content line 3 - tab 3</p>
+                                        <p>Content line 4 - tab 3</p>
+                                        <p>Content line 5 - tab 3</p>
+                                    </li>
                                 </ul>
                             </div>
-                            <ul id="properties-list" class="properties-list" data-items-per-page="15"></ul>
-                            <template id="property-template">
-                                <div class="property-item">
-                                    <figure>
-                                        <a href="javascript:void(0)"><img src="" alt="" class="js-property-item-image" /></a>
-                                    </figure>
-                                    <h3 class="js-property-item-median-price">---</h3>
-                                    <ul>
-                                        <li><i class="fa fa-bed"></i><span class="js-property-item-bed">-</span> Beds</li>
-                                        <li><i class="fa fa-bath"></i><span class="js-property-item-bath">-</span> Baths</li>
-                                        <li><i class="fa fa-car"></i><span class="js-property-item-park">-</span> Park</li>
-                                        <li><i class="fa fa-object-group"></i><span class="js-property-item-square">-</span> sqft</li>
-                                    </ul>
-                                    <p><i class="fa fa-map"></i><span class="js-property-item-address">---</span></p>
-                                    <div class="btns"><a href="javascript:void(0)" class="btn btn-primary js-property-item-btn-view">View</a></div>
-                                </div>
-                            </template>
-                            <div class="pagination">
-                                <ul id="pagination"></ul>
-                            </div>
+                            <ul class="tags">
+                                <li><a href="#">estate</a></li>
+                                <li><a href="#">rent</a></li>
+                                <li><a href="#">house</a></li>
+                                <li><a href="#">buy</a></li>
+                                <li><a href="#">apartment</a></li>
+                            </ul>
                         </div>
                     </div>
                 </section>

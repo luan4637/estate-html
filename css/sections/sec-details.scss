@@ -1,0 +1,215 @@
+.sec-details {
+    &-inner {
+        
+    }
+
+    .features, .tags, .tabs, .address, .prices {
+        margin: 0 0 1.5em 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .images-list {
+        margin-right: -1em;
+        margin-bottom: 1em;
+
+        &::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        li {
+            float: left;
+            padding: 0 1em 1em 0;
+            width: 25%;
+            height: 12em;
+
+            &:nth-child(1) {
+                width: 50%;
+                height: 24em;
+            }
+
+            &:nth-child(2) {
+                width: 50%;
+            }
+
+            figure {
+                margin: 0;
+                height: 100%;
+                border-radius: 0.5rem;
+                overflow: hidden;
+                font-size: 0;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+
+    .headline {
+        margin: 0 0 0.7em 0;
+    }
+
+    .address {
+        color: $colorGray;
+
+        i {
+            margin-right: 0.5em;
+            color: $colorBlack;
+        }
+    }
+
+    .features {
+        li {
+            display: inline-block;
+            margin-right: 2em;
+            color: $colorGray;
+
+            i {
+                margin-right: 0.5em;
+                color: $colorBlack;
+            }
+
+            span {
+                
+            }
+        }
+    }
+
+    .prices {
+        display: flex;
+        color: $colorGray;
+
+        dl {
+            margin: 0 3em 0 0;
+
+            dt {
+                margin-bottom: 0.3em;
+
+                i {
+                    margin-right: 0.5em;
+                    color: $colorBlack;
+                }
+            }
+
+            dd {
+                margin: 0;
+                font-size: 1.3em;
+            }
+        }
+    }
+
+    .tags {
+        margin-top: 3em;
+        margin-bottom: 0;
+
+        li {
+            display: inline-block;
+            margin-right: 0.5em;
+
+            a {
+                padding: 0.4em 1.2em;
+                border-radius: 3em;
+                background-color: $colorLightGray;
+                border: 1px solid $colorLightGray;
+                text-decoration: none;
+                color: $colorGray;
+                transition: border-color 0.3s;
+
+                &:hover {
+                    border-color: $colorGray;
+                }
+            }
+        }
+    }
+
+    .tabs {
+        margin-top: 2.5em;
+        background-color: transparent;
+
+        &-labels {
+            li {
+                display: inline-block;
+                font-size: 0.85em;
+
+                a {
+                    margin-bottom: -1px;
+                    padding: 0.5em 1em;
+                    border: 1px solid transparent;
+                    border-bottom-width: 0;
+                    background-color: $colorLightGray;
+                    text-decoration: none;
+                    color: $colorBlack;
+
+                    &:hover {
+                        background-color: $colorWhite;
+                        border-color: $colorGray;
+                    }
+                }
+
+                &.actived {
+                    border: 1px solid $colorGray;
+                    border-bottom-width: 0;
+                    background-color: $colorWhite;
+                    font-size: 1em;
+
+                    &:first-child {
+                        border-top-left-radius: 0.5em;
+                    }
+
+                    &:last-child {
+                        border-top-right-radius: 0.5em;
+                    }
+
+                    a {
+                        background-color: transparent;
+
+                        &:hover {
+                            border-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-contents {
+            margin-top: -1px;
+            border-width: 1px 1px 1px 1px;
+            border-style: solid;
+            border-color: $colorGray;
+            border-radius: 0.5em;
+            border-top-left-radius: 0;
+            background-color: $colorWhite;
+            color: $colorGray;
+
+            li {
+                display: none;
+                padding: 1em;
+
+                &.actived {
+                    display: block;
+                }
+
+                p {
+                    line-height: 1.4;
+                    
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
