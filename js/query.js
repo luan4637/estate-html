@@ -45,6 +45,20 @@ const selectPropertiesQuery = async (locationId, listingTypeId, propertyTypeId, 
     return data;
 };
 
+const getPropertyById = async (id) => {
+    const { data, error } = await supabase
+        .from('property')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+    if (error) {
+        throw new Error(error.Error);
+    }
+
+    return data;
+};
+
 // bind data dropdown
 const loadDropDown = async (name, hasIcon = false) => {
     const dropdown = document.getElementById('search-' + name);
@@ -242,6 +256,42 @@ if (pagination) {
         }
     });
 }
+//-----------------------
+
+// details property
+const getDetailsProperty = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const propertyId = urlParams.get('id');
+    const propertyDetailsObj = document.getElementById('property-details');
+    const propertyImageIntro = document.getElementById('property-image-intro');
+    if (propertyId && propertyDetailsObj) {
+        const property = getPropertyById(propertyId);
+        property.then((data) => {
+            propertyDetailsObj.querySelector('.js-details-address').textContent = data.address;
+            propertyDetailsObj.querySelector('.js-details-bed').textContent = data.bed;
+            propertyDetailsObj.querySelector('.js-details-bath').textContent = data.bath;
+            propertyDetailsObj.querySelector('.js-details-park').textContent = data.park;
+            propertyDetailsObj.querySelector('.js-details-square').textContent = data.square;
+            propertyDetailsObj.querySelector('.js-details-median-price').textContent = priceFormat(data.median_price);
+            propertyDetailsObj.querySelector('.js-details-median-rent').textContent = priceFormat(data.median_rent);
+            propertyDetailsObj.querySelector('.js-details-created').textContent = '30';
+            propertyDetailsObj.querySelector('.js-details-description').innerHTML = data.description;
+
+            const galleries = data.galleries;
+            if (galleries) {
+                propertyDetailsObj.querySelector('.js-details-pic-0').src = galleries[0];
+                propertyDetailsObj.querySelector('.js-details-pic-1').src = galleries[1];
+                propertyDetailsObj.querySelector('.js-details-pic-2').src = galleries[2];
+                propertyDetailsObj.querySelector('.js-details-pic-3').src = galleries[3];
+            }
+
+            propertyImageIntro.style.backgroundImage = 'url("' + data.image_url + '")';
+        }).catch((err) => {
+            console.error(err);
+        });
+    }
+};
+getDetailsProperty();
 //-----------------------
 
 // submit newsletter

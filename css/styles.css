@@ -1025,7 +1025,7 @@ footer .footer-bottom ul li a:hover {
 .details-page .sec-intro {
   margin-bottom: 1em;
   padding: 0;
-  background-image: url(../img/property-page-bg.jpg);
+  background-image: url(../img/details-page-bg.jpg);
 }
 .details-page .sec-intro-inner {
   height: 50vh;
@@ -1335,15 +1335,41 @@ footer .footer-bottom ul li a:hover {
   margin: 0 0 0.7em 0;
 }
 .sec-details .address {
+  position: relative;
+  padding-right: 12.5em;
   color: #444;
 }
 .sec-details .address i {
   margin-right: 0.5em;
   color: #000;
 }
+.sec-details .address .btn-book-appointment {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12em;
+  background-color: #dc6025;
+  border: 1px solid #dc6025;
+  color: #fff;
+}
+.sec-details .address .btn-book-appointment:hover {
+  background-color: #fff;
+  color: #dc6025;
+}
+.sec-details .address .btn-book-appointment:hover i {
+  color: #dc6025;
+}
+.sec-details .address .btn-book-appointment i {
+  transition: color 0.3s;
+  color: #fff;
+}
+.sec-details .features {
+  margin-bottom: 1em;
+}
 .sec-details .features li {
   display: inline-block;
   margin-right: 2em;
+  margin-bottom: 0.5em;
   color: #444;
 }
 .sec-details .features li i {
@@ -1369,11 +1395,12 @@ footer .footer-bottom ul li a:hover {
   font-size: 1.3em;
 }
 .sec-details .tags {
-  margin-top: 3em;
+  margin-top: 2.5em;
   margin-bottom: 0;
 }
 .sec-details .tags li {
   display: inline-block;
+  margin-top: 0.5em;
   margin-right: 0.5em;
 }
 .sec-details .tags li a {
@@ -1452,6 +1479,15 @@ footer .footer-bottom ul li a:hover {
 }
 .sec-details .tabs-contents li p:last-child {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .sec-details .images-list li {
+    height: 9em;
+  }
+  .sec-details .images-list li:nth-child(1) {
+    height: 18em;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

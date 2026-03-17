@@ -50,7 +50,7 @@
                 </div>
             </header>
             <main class="details-page">
-                <section class="sec-intro">
+                <section class="sec-intro" id="property-image-intro">
                     <div class="container">
                         <div class="sec-intro-inner">
                             <div class="slogan">
@@ -65,48 +65,47 @@
                 
                 <section class="sec-details">
                     <div class="container">
-                        <div class="sec-details-inner">
+                        <div class="sec-details-inner" id="property-details">
                             <h1 class="headline headline-2">Aliquam non mauris morbi non lectus aliquam sit amet diam</h1>
                             <ul class="images-list">
-                                <li><figure><img src="/img/house6.jpg" alt="IMG1" /></figure></li>
-                                <li><figure><img src="/img/house7.jpg" alt="IMG2" /></figure></li>
-                                <li><figure><img src="/img/house8.jpg" alt="IMG3" /></figure></li>
-                                <li><figure><img src="/img/house9.jpg" alt="IMG4" /></figure></li>
+                                <li><figure><img class="js-details-pic-0" alt="" /></figure></li>
+                                <li><figure><img class="js-details-pic-1" alt="" /></figure></li>
+                                <li><figure><img class="js-details-pic-2" alt="" /></figure></li>
+                                <li><figure><img class="js-details-pic-3" alt="" /></figure></li>
                             </ul>
-                            <p class="address"><i class="fa fa-map"></i><span class="js-property-item-address">0289 Paget Point, Oregon OR 97075</span></p>
+                            <p class="address">
+                                <i class="fa fa-map"></i><span class="js-details-address">---</span>
+                                <a href="#" class="btn btn-book-appointment"><i class="fa fa-calendar"></i>Book Appointment</a>
+                            </p>
                             <ul class="features">
-                                <li><i class="fa fa-bed"></i><span class="js-property-item-bed">3</span> Beds</li>
-                                <li><i class="fa fa-bath"></i><span class="js-property-item-bath">2</span> Baths</li>
-                                <li><i class="fa fa-car"></i><span class="js-property-item-park">2</span> Park</li>
-                                <li><i class="fa fa-object-group"></i><span class="js-property-item-square">500</span> sqft</li>
+                                <li><i class="fa fa-bed"></i><span class="js-details-bed">-</span> Beds</li>
+                                <li><i class="fa fa-bath"></i><span class="js-details-bath">-</span> Baths</li>
+                                <li><i class="fa fa-car"></i><span class="js-details-park">-</span> Park</li>
+                                <li><i class="fa fa-object-group"></i><span class="js-details-square">-</span> sqft</li>
                             </ul>
                             <div class="prices">
                                 <dl>
                                     <dt><i class="fa fa-tag"></i>Median price</dt>
-                                    <dd class="js-property-item-median-price">$300,000</dd>
+                                    <dd class="js-details-median-price">---</dd>
                                 </dl>
                                 <dl>
                                     <dt><i class="fa fa-tag"></i>Weekly median rent</dt>
-                                    <dd class="js-property-item-median-rent">$500</dd>
+                                    <dd class="js-details-median-rent">---</dd>
                                 </dl>
                                 <dl>
                                     <dt><i class="fa fa-tag"></i>Listed</dt>
-                                    <dd><span class="js-property-item-created">17</span> days ago</dd>
+                                    <dd><span class="js-details-created">-</span> days ago</dd>
                                 </dl>
                             </div>
                             <div class="tabs" id="property-tabs">
                                 <ul class="tabs-labels">
-                                    <li data-tab-index="0" class="js-tab-label actived"><a href="#">Tab 1</a></li>
+                                    <li data-tab-index="0" class="js-tab-label actived"><a href="#">Information</a></li>
                                     <li data-tab-index="1" class="js-tab-label"><a href="#">Tab 2</a></li>
                                     <li data-tab-index="2" class="js-tab-label"><a href="#">Tab 3</a></li>
                                 </ul>
                                 <ul class="tabs-contents">
                                     <li class="js-tab-content actived">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed ipsum iaculis, bibendum leo et, consequat lectus. Suspendisse ornare nisi vitae ante consequat iaculis. Cras sed tellus eu sapien varius commodo. Suspendisse gravida viverra nisi, nec egestas urna dapibus a. Phasellus non magna a odio maximus accumsan molestie et odio. In hac habitasse platea dictumst. Suspendisse interdum nibh in tellus tincidunt efficitur. Suspendisse potenti.</p>
-                                        <p>Sed sed est justo. Maecenas hendrerit accumsan ipsum, eget egestas nunc tempus nec. Praesent vitae sem a augue malesuada blandit. Curabitur rutrum nibh ac posuere feugiat. Cras consectetur magna scelerisque posuere vehicula. Vivamus rhoncus volutpat tempor. Suspendisse potenti. Proin rhoncus nec leo ac molestie.</p>
-                                        <p>Nam urna nunc, malesuada a purus accumsan, consectetur eleifend magna. Morbi ut suscipit odio. Nullam nec pulvinar neque. In ac tellus pellentesque, dictum nisi id, venenatis est.</p>
-                                        <p>Sed sit amet odio euismod, ultricies nulla id, vulputate enim. Praesent vestibulum lacinia ligula, quis condimentum purus consequat vitae. Aliquam molestie elementum pellentesque. Sed et varius leo. Maecenas venenatis massa ipsum, et hendrerit nunc suscipit id. Fusce congue ex placerat, rhoncus libero at, cursus lectus. Phasellus ornare arcu urna, id pulvinar nisl finibus vitae. Sed sed arcu quis arcu laoreet porta quis et sapien.</p>
-                                        <p>Nulla ac venenatis nisi. Integer nec lacinia ex. Suspendisse scelerisque nibh vitae scelerisque euismod. Proin rutrum tortor et lorem tempor convallis. Vestibulum fringilla enim libero, sed vulputate eros aliquam eu.</p>
+                                        <div class="js-details-description"></div>
                                     </li>
                                     <li class="js-tab-content">
                                         <p>Content line 1 - tab 2</p>
