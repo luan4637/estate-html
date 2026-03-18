@@ -277,7 +277,7 @@ const getDetailsProperty = () => {
             propertyDetailsObj.querySelector('.js-details-created').textContent = '30';
             propertyDetailsObj.querySelector('.js-details-description').innerHTML = data.description;
 
-            const galleries = data.galleries;
+            const galleries = data.gallery_urls;
             if (galleries) {
                 propertyDetailsObj.querySelector('.js-details-pic-0').src = galleries[0];
                 propertyDetailsObj.querySelector('.js-details-pic-1').src = galleries[1];
