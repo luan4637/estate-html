@@ -28,8 +28,10 @@ export const PropertyEdit = () => {
                     <ReferenceInput label="Listing Type" source="listing_type_id" reference="listingType">
                         <RadioButtonGroupInput optionText="name" />
                     </ReferenceInput>
-                    <ImageField source="image_url" />
                     <ImageInput source="image" multiple={false}>
+                        <ImageField source="src" />
+                    </ImageInput>
+                    <ImageInput source="galleries" multiple={true}>
                         <ImageField source="src" />
                     </ImageInput>
                     <Stack direction={'row'} spacing={2} sx={{ alignItems: "center" }}>

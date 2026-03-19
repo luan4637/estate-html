@@ -26,38 +26,87 @@ const dataProvider = supabaseDataProvider({ instanceUrl, apiKey, supabaseClient 
 const authProvider = supabaseAuthProvider(supabaseClient, {});
 
 const addImageParams = async (params: any) => {
-    const file = params.data.image.rawFile;
-    const filePath = `${Date.now()}-${file.name}`;
+    let updatedParams = params;
 
-    const { data: uploadData, error: uploadError } = await supabaseClient.storage
-        .from('estate')
-        .upload(filePath, file, {
-            cacheControl: '3600',
-            upsert: false,
-            contentType: file.type || 'image/jpeg',
-        });
+    if (params.data.image
+        && params.data.image.rawFile
+        && params.data.image.src.indexOf('blob:') > -1
+    ) {
+        const file = params.data.image.rawFile;
+        const filePath = `${Date.now()}-${file.name}`;
 
-    if (uploadError) {
-        console.error('Upload error:', uploadError);
-        throw new Error('Image upload failed');
+        const { data: uploadData, error: uploadError } = await supabaseClient.storage
+            .from('estate')
+            .upload(filePath, file, {
+                cacheControl: '3600',
+                upsert: false,
+                contentType: file.type || 'image/jpeg',
+            });
+
+        if (uploadError) {
+            console.error('Upload error:', uploadError);
+            throw new Error('Image upload failed');
+        }
+
+        const { data: publicURLData } = supabaseClient.storage
+            .from('estate')
+            .getPublicUrl(filePath);
+
+        const publicUrl = publicURLData.publicUrl;
+        updatedParams.data.image.src = publicUrl;
+
+        updatedParams = {
+            ...updatedParams,
+            data: {
+                ...updatedParams.data,
+                image_url: publicUrl,
+            },
+        };
     }
 
-    const { data: publicURLData } = supabaseClient.storage
-        .from('estate')
-        .getPublicUrl(filePath);
+    if (params.data.galleries && params.data.galleries.length > 0) {
+        const galleryPublicUrls: string[] = [];
+        const galleryFiles = params.data.galleries;
+        const uploadPromises = [];
+        const publicUrlPromises = [];
 
-    const publicUrl = publicURLData.publicUrl;
-    let objImg = params.data.image;
-    objImg.src = publicUrl;
+        for (let i = 0; i < galleryFiles.length; i++) {
+            const galleryFile = galleryFiles[i];
+            const galleryRawFile = galleryFile.rawFile;
 
-    const updatedParams = {
-        ...params,
-        data: {
-            ...params.data,
-            image_url: publicUrl,
-            image: objImg,
-        },
-    };
+            if (galleryRawFile && galleryFile.src.indexOf('blob:') > -1) {
+                const galleryRawPath = `${Date.now()}-${galleryRawFile.name}`;
+                uploadPromises[i] = supabaseClient.storage.from('estate').upload(galleryRawPath, galleryRawFile);
+                publicUrlPromises[i] = supabaseClient.storage.from('estate').getPublicUrl(galleryRawPath);
+            }
+        }
+
+        await Promise.all(uploadPromises).catch((error) => {
+            console.error(error.message);
+        });
+
+        await Promise.all(publicUrlPromises).then((objUrls) => {
+            for (const key in objUrls) {
+                if (objUrls[key] && objUrls[key].data) {
+                    updatedParams.data.galleries[key].src = objUrls[key].data.publicUrl;
+                }
+            }
+        }).catch((error) => {
+            console.error(error.message);
+        });
+
+        updatedParams.data.galleries.forEach((item: any) => {
+            galleryPublicUrls.push(item.src);
+        });
+
+        updatedParams = {
+            ...updatedParams,
+            data: {
+                ...updatedParams.data,
+                gallery_urls: galleryPublicUrls,
+            },
+        };
+    }
     
     return updatedParams;
 }
@@ -65,22 +114,30 @@ const addImageParams = async (params: any) => {
 const myDataProvider = {
     ...dataProvider,
     create: async (resource: any, params: any) => {
-        if (resource !== 'property' || !params.data.image || params.data.image.length === 0 || typeof params.data.image.rawFile === 'undefined') {
-            return dataProvider.create(resource, params);
+        if (resource === 'property' && (
+                params.data.image ||
+                params.data.galleries && params.data.galleries.length > 0
+            )
+        ) {
+            const updatedParams = await addImageParams(params);
+
+            return dataProvider.create(resource, updatedParams);
         }
 
-        const updatedParams = await addImageParams(params);
-
-        return dataProvider.create(resource, updatedParams);
+        return dataProvider.create(resource, params);
     },
     update: async (resource: any, params: any) => {
-        if (resource !== 'property' || !params.data.image || params.data.image.length === 0 || typeof params.data.image.rawFile === 'undefined') {
-            return dataProvider.update(resource, params);
+        if (resource === 'property' && (
+                params.data.image ||
+                params.data.galleries && params.data.galleries.length > 0
+            )
+        ) {
+            const updatedParams = await addImageParams(params);
+
+            return dataProvider.update(resource, updatedParams);
         }
 
-        const updatedParams = await addImageParams(params);
-
-        return dataProvider.update(resource, updatedParams);
+        return dataProvider.update(resource, params);
     },
 };
 

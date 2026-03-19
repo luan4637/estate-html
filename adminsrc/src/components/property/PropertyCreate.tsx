@@ -29,6 +29,9 @@ export const PropertyCreate = () => {
                     <ImageInput source="image" multiple={false}>
                         <ImageField source="src" />
                     </ImageInput>
+                    <ImageInput source="galleries" multiple={true}>
+                        <ImageField source="src" />
+                    </ImageInput>
                     <Stack direction={'row'} spacing={2}>
                         <ReferenceInput label="Location" source="location_id" reference="location">
                             <SelectInput optionText="name" optionValue="id" validate={required()} />
